@@ -1,27 +1,32 @@
 @startuml
 entity Pet {
   id
-  breed_id // порода
+  id_breed // порода
   name
   age
   color
 }
 
 entity Pet_Person {
-  pet_id
-  person_id
+  id_pet
+  id_person
   ownership_start_date
   ownership_end_date
 }
 
 entity Person {
   id
-  name
+  first_name
+  surname
+  last_name
+  login
+  password
 }
 
 entity Breed {
   id
   name
+  id_animal_type
 }
 
 entity Animal_Type {
@@ -45,21 +50,21 @@ entity Service {
 }
 
 entity Insurance_Package_Service {
-  insurance_package_id
-  service_id
+  id_insurance_package
+  id_service
 }
 
 entity Insurance {
   id
-  person_id
-  insurance_package_id
+  id_person
+  id_insurance_package
   date_start
   date_end
 }
 
 entity Insurance_Pet {
-  insurence_id
-  pet_id
+  id_insurance
+  id_pet
 }
 
 Person -right-+ Pet_Person

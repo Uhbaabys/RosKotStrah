@@ -2,4 +2,8 @@ extends layout
 
 block content
   h1= title
+  form(method = "POST" class='forms' id='regForms')
+    input(type='text' placeholder='Логин' class='forms' id='loginField')
+    input(type='password' placeholder='Парольчик' class='forms' id='passwordField')
+    input(type='submit' class='forms' id='submitBtn')
   p Welcome to #{title}

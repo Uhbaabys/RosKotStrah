@@ -2,4 +2,17 @@
   "prettier.singleQuote": true,
   "prettier.tabWidth": 2,
   "prettier.printWidth": 120,
+  "editor.tabSize": 2,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "RosKotStrah",
+      "database": "RosKotStrah",
+      "username": "postgres",
+      "password": "admin"
+    }
+  ],
 }

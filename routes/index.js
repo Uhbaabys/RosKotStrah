@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'RosKotStrah' });
 });
 
+router.post('/', (req, res, next) => {
+  console.log('sdasdfas', req.body)
+})
+
 module.exports = router;

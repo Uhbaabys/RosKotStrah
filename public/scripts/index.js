@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   const loginField = document.getElementById('loginField');
   const passwordField = document.getElementById('passwordField');
 
-  form.addEventListener('submit', () => {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
     console.log(loginField.value, passwordField.value);
     fetch('http://localhost:3000/', {
       method: 'POST',

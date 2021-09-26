@@ -8,18 +8,19 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'RosKotStrah' });
 });
 
-router.post('/', (req, res, next) => {
-  if (!res.body) {
+router.post('/', async (req, res, next) => {
+  if (!req.body) {
     console.log('========= empty body =========>', req.headers);
   }
-  console.log(Date.now(), '===========>', req.body);
   const { login, password } = req.body;
   const name = `${login}:${password}`;
-  // const animalType = AnimalType.create({ name: `${login}:${password}` });
-  // console.log('animal type: ', animalType);
-  sequelize.query(`INSERT INTO "Animal_Type" (name) VALUES ('${name}');`);
+  // эквивалентно: const animalType = await AnimalType.create({ name });
+  const [animalType] = await sequelize.query(`INSERT INTO "Animal_Type" (name) VALUES ('${name}') RETURNING id, name;`, {
+    model: AnimalType,
+    mapToModel: true,
+  });
+  console.log(`animal type: { id: ${animalType.id}, name: ${animalType.name} }`);
   res.sendStatus(200);
-  // res.render('test');
 });
 
 module.exports = router;

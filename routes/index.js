@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
 
-const { sequelize, AnimalType } = require('../src/db');
+const { sequelize, AnimalType } = require('../src/db/db');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
+  res.render('index', { title: 'RosKotStrah' });
+});
+
+router.get('/admin', (req, res, next) => {
+  res.render('admin');
+});
+
+router.get('/animal', (req, res, next) => {
   res.render('index', { title: 'RosKotStrah' });
 });
 

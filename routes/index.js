@@ -12,22 +12,21 @@ router.get('/admin', (req, res, next) => {
   res.render('admin');
 });
 
-router.get('/animal', async (req, res, next) => {
-  const animalType = await sequelize.query('SELECT id, name FROM "Animal_Type";', {
+router.get('/animal_type', async (req, res, next) => {
+  const animalTypes = await sequelize.query('SELECT id, name FROM "Animal_Type";', {
     model: AnimalType,
     mapToModel: true,
   });
-  res.json({ animals: animalType });
+  res.json({ animalTypes });
 });
 
-router.post('/animal', async (req, res, next) => {
+router.post('/animal_type', async (req, res, next) => {
   if (!req.body) {
     console.log('========= empty body =========>', req.headers);
   }
-  const { name } = req.body;
-  // эквивалентно: const animalType = await AnimalType.create({ name });
+  // эквивалентно: const animalType = await AnimalType.create({ name: req.body.name });
   const [animalType] = await sequelize.query('INSERT INTO "Animal_Type" (name) VALUES (:name) RETURNING id, name;', {
-    replacements: { name },
+    replacements: { name: req.body.name },
     model: AnimalType,
     mapToModel: true,
   });

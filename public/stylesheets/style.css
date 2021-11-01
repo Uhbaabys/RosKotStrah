@@ -13,3 +13,17 @@ a {
   margin-top: 20px;
   background-color: #00B7FF;
 }
+/* Таблицы */
+.adminTable{
+  border-collapse: collapse;
+  /* width: 100%; */
+  border: 2px solid grey;
+}
+td{
+  border: 1px solid grey;
+}
+
+tr{
+  border: 1px solid grey;
+}
+/* Кнопки */

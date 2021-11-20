@@ -3,11 +3,14 @@ entity Pet {
   id
   id_breed // порода
   name
-  age
   color
+  sex
+  birth_date
+  death_date
 }
 
 entity Pet_Person {
+  id
   id_pet
   id_person
   ownership_start_date
@@ -56,15 +59,10 @@ entity Insurance_Package_Service {
 
 entity Insurance {
   id
-  id_person
+  id_pet_person
   id_insurance_package
   date_start
   date_end
-}
-
-entity Insurance_Pet {
-  id_insurance
-  id_pet
 }
 
 Person -right-+ Pet_Person
@@ -75,10 +73,7 @@ Animal_Type --+ Breed
 Insurance_Package -right-+ Insurance_Package_Service
 Insurance_Package_Service +-right- Service
 
-Person --+ Insurance
+Pet_Person --+ Insurance
 Insurance +-- Insurance_Package
-
-Pet --+ Insurance_Pet
-Insurance_Pet +-left- Insurance
 
 @enduml

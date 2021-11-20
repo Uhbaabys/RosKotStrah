@@ -1,6 +1,4 @@
-const { DataTypes } = require('sequelize');
-
-const createAnimalType = (sequelize) => {
+const createAnimalType = (sequelize, DataTypes) => {
   return sequelize.define(
     'AnimalType', // название модели
     {

@@ -125,24 +125,28 @@ function sendNahoi(){
 // объявление функции генерации таблиц
 function generateTable(tableName, json){
 
-    const ArrTableName = Object.keys(TabelFieldsList);
-    console.log(ArrTableName);
-  for (i = 0; i < ArrTableName.length; i++){
+  const ArrTableName = Object.keys(TabelFieldsList);
+  console.log(ArrTableName);
+  switch (tableName){
+    case 'animal_type':
+      const tableFields = TabelFieldsList.animal_type;
+      console.log('chivapchich');
+      break;
+  }
 
-    console.log(tableName);
-    if (ArrTableName[i] == tableName){
-      // console.log(ArrTableName[i]);
-      const tableBlock = document.createElement('div');
-      const tableLable = document.createElement('div');
-      const table = document.createElement('table');
-      const tableTh = document.createElement('th');
-      const tableTr = document.createElement('tr');
-      const tableTd = document.createElement('td');
+  // console.log(tableName);
+  if (ArrTableName[i] == tableName){
+    // console.log(ArrTableName[i]);
+    const tableBlock = document.createElement('div');
+    const tableLable = document.createElement('div');
+    const table = document.createElement('table');
+    const tableTh = document.createElement('th');
+    const tableTr = document.createElement('tr');
+    const tableTd = document.createElement('td');
 
-      document.body.insertAdjacentElement('beforeend', tableBlock);
-      tableBlock.insertAdjacentElement('afterbegin', tableLable);
-      tableBlock.insertAdjacentElement('beforeend', table);
-      table.prepend(tableTr);
-      }
+    document.body.insertAdjacentElement('beforeend', tableBlock);
+    tableBlock.insertAdjacentElement('afterbegin', tableLable);
+    tableBlock.insertAdjacentElement('beforeend', table);
+    table.prepend(tableTr);
     }
   }

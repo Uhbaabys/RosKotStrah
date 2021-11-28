@@ -19,4 +19,4 @@ const createAnimalType = (sequelize, DataTypes) => {
   );
 };
 
-module.exports = createAnimalType;
+modules.exports = createAnimalType;

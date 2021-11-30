@@ -4,5 +4,29 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
   block content
+    .tab_active#Animal_Type_Tab Виды животных
+    .tab_inactive#Breed_Tab Породы
+    .tab_inactive#Pet_Tab Питомцы
+    .tab_inactive#Pet_Person_Tab Принадлежность питомцев
+    .tab_inactive#Person_Tab Клиенты
+    .tab_inactive#Insurance_Tab Страховки
+    .tab_inactive#Insurance_Package_Tab Пакеты
+    .tab_inactive#Service_Tab Сервисы
+    .table_active#Animal_Type
+      button.addBtn#Animal_Type_Button Добавить запись
+    .table_inactive#Breed
+      button.addBtn#Breed_Button Добавить запись
+    .table_inactive#Pet
+      button.addBtn#Pet_Button Добавить запись
+    .table_inactive#Pet_Person
+      button.addBtn#Pet_Person_Button Добавить запись
+    .table_inactive#Person
+      button.addBtn#Person_Button Добавить запись
+    .table_inactive#Insurance
+      button.addBtn#Insurance_Button Добавить запись
+    .table_inactive#Insurance_Package
+      button.addBtn#Insurance_Package_Button Добавить запись
+    .table_inactive#Service
+      button.addBtn#Service_Button Добавить запись
   
   script(src='/scripts/admin.js')

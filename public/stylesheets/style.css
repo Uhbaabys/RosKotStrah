@@ -12,28 +12,64 @@ a {
   height: 100%;
   margin-top: 20px;
 }
-/* Таблицы */
-.adminTable{
-  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-  font-size: 14px;
-  background: white;
-  max-width: 70%;
-  width: 70%;
-  border-collapse: collapse;
-  text-align: left;
+button{
+  display:flexbox;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(107, 180, 253);
+  height: 30px;
+  width: max-content;
+  margin-right: 5px;
+  color:floralwhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: none;
 }
-td{
-  border-bottom: 1px solid #ccc;
-  color: #669;
-  padding: 9px 8px;
-  transition: .3s linear;
+button:hover{
+  background-color:rgb(224, 237, 250);
+  color:rgb(139, 194, 245);
+  /* border: 2px solid rgb(139, 194, 245); */
+}
+button:active{
+  background-color:rgb(243, 244, 245);
+}
+.addBtn {
+  margin-top: 10px;
+}
+.tab_active{
+  display:inline-block;
+  background-color:rgb(107, 180, 253);
+  height: 30px;
+  width: max-content;
+  margin-right: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color:floralwhite;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-th{
-  font-weight: normal;
-  color: #039;
-  border-bottom: 2px solid #6678b1;
-  padding: 10px 8px;
-  width: 70%;
+.tab_inactive{
+  display:inline-block;
+  background-color:rgb(224, 237, 250);
+  height: 30px;
+  width: max-content;
+  margin-right: 5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color:rgb(139, 194, 245);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* Кнопки */
+
+.table_inactive{
+  display: none;
+}
+.table_active{
+  display: block;
+}
+.table_active > table{
+  margin-top: 50px;
+  border: 2px solid rgb(139, 194, 245);
+}

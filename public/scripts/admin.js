@@ -2,6 +2,7 @@ const animalTypestableBlock = document.getElementById('animalTypes');
 const Table = document.getElementById('Table');
 const BASE_URL = 'http://localhost:3000/';
 
+
 // Справочник полей таблиц, наименований и типов полей
 
 const TabelFieldsList = {
@@ -37,8 +38,24 @@ const TabelFieldsList = {
   },
   Service : {
     fields: ['name', 'deprecated'],
-    labels: ['Наименование услуги', 'ПРизнак устаревшести']
+    labels: ['Наименование услуги', 'Признак устаревшести']
   }
+}
+
+
+//Инициализация вкладок
+for(a = 0; a < Object.keys(TabelFieldsList).length; a++){
+  document.getElementById(Object.keys(TabelFieldsList)[a] + '_Tab').addEventListener('click', (event) => {
+    for(b = 0; b < Object.keys(TabelFieldsList).length; b++){
+      if(document.getElementById(Object.keys(TabelFieldsList)[b] + '_Tab').id == event.target.id){
+        event.target.setAttribute('class', 'tab_active');
+        document.getElementById(Object.keys(TabelFieldsList)[b]).setAttribute('class', 'table_active');
+      } else {
+        document.getElementById(Object.keys(TabelFieldsList)[b] + '_Tab').setAttribute('class', 'tab_inactive');
+        document.getElementById(Object.keys(TabelFieldsList)[b]).setAttribute('class', 'table_inactive');
+      }
+    }
+  })
 }
 
 // вызовы функций генерации таблиц
@@ -69,14 +86,27 @@ function sendNahoi(){
 // объявление функции генерации таблиц
 function generateTable(tableName, json){
 
-  const tableBlock = document.createElement('div');
+  // const animalTypeList = [{id: 1, name: 'wawa'}, {id: 2, name: 'baka'}]
+
+  // for (const amam of animalTypeList) {
+  //   const callback = () => {
+  //     const id = amam.id;
+  //     ///
+  //   };
+  //   button.click = callback;
+  // }
+
+  // const tableBlock = document.createElement('div');
+  const tableBlock = document.getElementById(tableName);
   const tableLable = document.createElement('div');
   const table = document.createElement('table');
   const tableTd = document.createElement('td');
+  const addButton = document.createElement('button')
 
   document.body.insertAdjacentElement('beforeend', tableBlock);
+  
+  tableBlock.insertAdjacentElement('afterbegin', table);
   tableBlock.insertAdjacentElement('afterbegin', tableLable);
-  tableBlock.insertAdjacentElement('beforeend', table);
   const tableTr = document.createElement('tr');
   table.prepend(tableTr);
 
@@ -84,21 +114,28 @@ function generateTable(tableName, json){
     const tableTh = document.createElement('th');
 
     tableTr.insertAdjacentElement('beforeend', tableTh);
-    tableTh.innerText = (TabelFieldsList[tableName].labels[i]);
+    // tableTh.innerText = (TabelFieldsList[tableName].labels[i]);
     // console.log(TabelFieldsList[tableName].labels[i]);
   }
 
   for(j = 0; j < json[tableName].length; j++){
     const rows = document.createElement('tr');
+    const editButton = document.createElement('button');
+    const delButton = document.createElement('button');
     table.append(rows);
 
     for(k = 0; k < TabelFieldsList[tableName].fields.length; k++){
       const cell = document.createElement('td');
       rows.append(cell);
       cell.innerText = json[tableName][j][TabelFieldsList[tableName].fields[k]];  
-      console.log(json[tableName][j][TabelFieldsList[tableName].fields[k]])
     }
+    rows.append(editButton);
+    editButton.innerText = 'Редактировать';
+    rows.append(delButton);
+    delButton.innerText = 'Удалить';
   }
+  // tableBlock.insertAdjacentElement('beforeend', addButton);
+  // addButton.innerText = 'Добавить запись';
 }
 
 
